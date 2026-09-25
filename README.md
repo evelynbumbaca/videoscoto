@@ -3,7 +3,8 @@
 Video institucional en motion graphics, sincronizado con la locución.
 
 - **Archivo final:** [`entrega/Etapas_de_evaluacion_GD2026.mp4`](entrega/Etapas_de_evaluacion_GD2026.mp4)
-- **Formato:** 1920×1080 (16:9) · 30 fps · H.264 (High, CRF 14) + AAC 256 kbps · 2:14
+- **Formato:** 1920×1080 (16:9) · 30 fps · H.264 (High, CRF 10, un keyframe por segundo para editar cómodo en After Effects) + AAC 256 kbps · 2:14
+- **Color:** BT.709; el rojo `#E6352F` se conserva exacto (±1) en el archivo final.
 - **Locución:** empieza en el segundo 0,5 del video (ya viene mezclada en el MP4).
 - **Sin logo:** el logo de COTO se agrega en After Effects (ver zonas reservadas).
 - **Guion y tiempos:** [`docs/STORYBOARD.md`](docs/STORYBOARD.md)

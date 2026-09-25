@@ -179,7 +179,7 @@ function badgeIcons(tl, parent, cx, cy, d, list) {
 function tipItem(parent, x, y, title, detail, o = {}) {
   const r = o.r || 30;
   const chk = checkIcon(parent, x + r, y + 30, r);
-  const tt = T(parent, title, { x: x + r * 2 + 30, y: y, size: o.size || 46, weight: 700, ls: '-.012em', nowrap: true });
+  const tt = T(parent, title, { x: x + r * 2 + 30, y: y + 2, size: o.size || 42, weight: 700, ls: '-.012em', nowrap: true });
   const dt = detail != null ? T(parent, detail, { x: x + r * 2 + 30, y: y + 66, w: o.w || 960, size: o.dsize || 31, weight: 400, color: C.ink2, lh: 1.3 }) : null;
   return { chk, tt, dt, all: [chk.s, tt, dt].filter(Boolean) };
 }
