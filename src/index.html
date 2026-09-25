@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Etapas de evaluación · Gestión del desempeño 2026</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="stage"></div>
+<div id="dbg"></div>
+<div id="player"><button id="play">▶︎ Play</button><span id="tc">0.00</span><input id="scrub" type="range" min="0" max="134" step="0.01" value="0"></div>
+<script src="../node_modules/gsap/dist/gsap.min.js"></script>
+<script src="../node_modules/gsap/dist/SplitText.min.js"></script>
+<script src="../node_modules/gsap/dist/DrawSVGPlugin.min.js"></script>
+<script src="../node_modules/gsap/dist/MorphSVGPlugin.min.js"></script>
+<script src="../node_modules/gsap/dist/CustomEase.min.js"></script>
+<script src="icons.gen.js"></script>
+<script>const STAGE = document.getElementById('stage'); const SCENES = [];</script>
+<script src="lib.js"></script>
+<script src="scenes/s1_apertura.js"></script>
+<script src="scenes/s2_autoevaluacion.js"></script>
+<script src="scenes/s3_cascada.js"></script>
+<script src="scenes/s4_doble_via.js"></script>
+<script src="scenes/s5_evaluado.js"></script>
+<script src="scenes/s6_evaluador.js"></script>
+<script src="scenes/s7_cierre.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
