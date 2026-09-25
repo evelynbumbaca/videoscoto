@@ -2,9 +2,9 @@
 // Header, three cards from the infographic (one per group) and an October strip where each window lights up.
 SCENES.push(tl => {
   const s2 = h('div', { cls: 'scene' });
-  show(tl, s2, 21.5, 39.9);
+  show(tl, s2, 20.047, 37.61);
   const content = h('div', { cls: 'fill' }, s2);
-  const cover = sweep(tl, s2, 21.52);
+  const cover = sweep(tl, s2, 20.067);
   gsap.set(content, { autoAlpha: 0 });
   tl.set(content, { autoAlpha: 1 }, cover);
   box(content, { x: 0, y: 0, w: W, h: H, bg: C.bg });
@@ -12,10 +12,10 @@ SCENES.push(tl => {
   // header
   const eb = T(content, 'Todo arranca con la', { x: 150, y: 176, cls: 'eyebrow', nowrap: true });
   revealWords(tl, eb, cover + .25, { stagger: .05 });
-  const title = T(content, 'Autoevaluación', { x: 145, y: 214, size: 108, weight: 700, ls: '-.025em', nowrap: true });
-  revealWords(tl, title, A(22.83) - .28);
-  const sub = T(content, 'Cada grupo tiene su propia ventana de tiempo para completarla.', { x: 150, y: 358, size: 40, weight: 400, color: C.ink2, nowrap: true });
-  revealWords(tl, sub, A(24.27) - .12, { stagger: .035, dur: .8 });
+  const title = T(content, 'Autoevaluación', { x: 145, y: 214, size: 108, weight: 800, rw: true, ls: '-.02em', nowrap: true });
+  revealWords(tl, title, A(21.697) - .28);
+  const sub = T(content, 'Cada grupo tiene su propia ventana de tiempo para completarla.', { x: 150, y: 358, size: 40, weight: 500, color: C.ink2, nowrap: true });
+  revealWords(tl, sub, A(22.897) - .12, { stagger: .035, dur: .8 });
 
   // October 2026 strip (Oct 1st is a Thursday)
   const SX = 150, SW = 1620, SY = 872, pitch = SW / 31, cw = 44;
@@ -25,10 +25,10 @@ SCENES.push(tl => {
     const dow = (d + 2) % 7;              // 0 = Monday … 5 = Saturday, 6 = Sunday
     const weekend = dow >= 5;
     const c = box(content, { x: SX + pitch * (d - 1) + (pitch - cw) / 2, y: SY, w: cw, h: 52, r: 11, bg: weekend ? 'rgba(0,0,0,0)' : '#EAE4DE', border: weekend ? '2px solid #E4DDD6' : undefined });
-    const n = T(c, String(d), { x: cw / 2, y: 12, w: cw, align: 'center', size: 21, weight: 600, color: weekend ? '#B9B0A9' : '#7D746F' });
+    const n = T(c, String(d), { x: cw / 2, y: 12, w: cw, align: 'center', size: 21, weight: 700, color: weekend ? '#B9B0A9' : '#7D746F' });
     cells.push(c); nums.push(n);
   }
-  const tStrip = A(25.79) - .25;
+  const tStrip = A(24.257) - .25;
   revealWords(tl, lab, tStrip - .1, { stagger: .05 });
   tl.fromTo(cells, { autoAlpha: 0, y: 18 }, { autoAlpha: 1, y: 0, duration: .5, ease: 'expo.out', stagger: .018 }, tStrip);
 
@@ -41,9 +41,9 @@ SCENES.push(tl => {
 
   // cards
   const cards = [
-    { name: 'Directores y Gerentes', dates: '1 al 9 de octubre', tIn: A(27.95) - .32, tDate: A(29.55) - .12, win: [1, 9] },
-    { name: 'Mandos Medios', dates: '12 al 16 de octubre', tIn: A(31.63) - .32, tDate: A(32.83) - .12, win: [12, 16] },
-    { name: 'Colaboradores', dates: '19 al 23 de octubre', tIn: A(34.91) - .12, tDate: A(35.95) - .12, win: [19, 23] },
+    { name: 'Directores y Gerentes', dates: '1 al 9 de octubre', tIn: A(26.309) - .32, tDate: A(27.829) - .12, win: [1, 9] },
+    { name: 'Mandos Medios', dates: '12 al 16 de octubre', tIn: A(29.909) - .32, tDate: A(31.109) - .12, win: [12, 16] },
+    { name: 'Colaboradores', dates: '19 al 23 de octubre', tIn: A(33.429) - .12, tDate: A(34.549) - .12, win: [19, 23] },
   ];
   const CW = 526, CH = 300, CYt = 462;
   const cardEls = cards.map((c, i) => {
@@ -55,7 +55,7 @@ SCENES.push(tl => {
     const nm = T(card, c.name, { x: 194, y: 0, w: CW - 194 - 30, size: 38, weight: 700, color: C.red, lh: 1.12, ls: '-.01em' });
     gsap.set(nm, { top: 98 - nm.offsetHeight / 2 });
     const pill = h('div', { cls: 'pill', html: '' }, card);
-    gsap.set(pill, { left: 38, top: 198, height: 64, padding: '0 28px 0 20px', backgroundColor: '#fff', color: C.ink, fontSize: 30 });
+    gsap.set(pill, { left: 38, top: 198, height: 64, padding: '0 28px 0 20px', backgroundColor: '#fff', color: C.ink, fontSize: 30, fontWeight: 500 });
     const pic = sv('svg', { width: 34, height: 34, viewBox: '0 0 24 24', fill: 'none', stroke: C.red, 'stroke-width': 2, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' });
     pic.innerHTML = window.LUCIDE['calendar-days'];
     pill.appendChild(pic);
@@ -71,10 +71,10 @@ SCENES.push(tl => {
     return { card, pill };
   });
   // a little breath on the cards while the last date is read
-  tl.to(cardEls.map(c => c.card), { y: -6, duration: .8, ease: 'sine.inOut', yoyo: true, repeat: 1, stagger: .12 }, 37.2);
+  tl.to(cardEls.map(c => c.card), { y: -6, duration: .8, ease: 'sine.inOut', yoyo: true, repeat: 1, stagger: .12 }, 35.143);
 
   // exit toward scene 3: text up, cards down, the strip collapses into the timeline's line
-  const TX = 38.78;
+  const TX = 36.49;
   tl.to([eb, title, sub], { y: -40, autoAlpha: 0, duration: .45, ease: 'power2.in', stagger: .05 }, TX);
   tl.to(cardEls.map(c => c.card), { y: 60, autoAlpha: 0, duration: .5, ease: 'power2.in', stagger: .06 }, TX + .05);
   tl.to(lab, { autoAlpha: 0, duration: .3 }, TX);

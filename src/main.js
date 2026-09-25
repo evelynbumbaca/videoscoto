@@ -4,7 +4,8 @@
   const RENDER = params.has('render');
   const tl = gsap.timeline({ paused: true });
 
-  await Promise.all([300, 400, 500, 600, 700, 800].map(w => document.fonts.load(`${w} 40px Poppins`)));
+  await Promise.all([...[500, 700, 900].map(w => document.fonts.load(`${w} 40px Roboto`)),
+    ...[800, 900].map(w => document.fonts.load(`${w} 40px Raleway`))]);
   await document.fonts.ready;
 
   for (const build of SCENES) build(tl);

@@ -125,13 +125,15 @@ async function main() {
       const out = outPath(args.out || 'out/video.mp4');
       const audio = path.resolve(ROOT, 'assets/audio/locucion.mp3');
       const offMs = Math.round(meta.audioOffset * 1000);
+      // positive offset: the voice starts later (delay); negative: skip the file's leading silence (trim)
+      const place = offMs >= 0 ? `adelay=${offMs}:all=1` : `atrim=start=${-offMs / 1000},asetpts=PTS-STARTPTS`;
       // RGB -> BT.709 limited range with accurate rounding, so #E6352F stays #E6352F (±1) in any player
       const toYuv = 'scale=out_color_matrix=bt709:out_range=tv:flags=accurate_rnd+full_chroma_int+bitexact,format=yuv420p';
       const vf = mb > 1
         ? `tmix=frames=${mb}:weights=${Array(mb).fill(1).join(' ')},select='not(mod(n+1\\,${mb}))',setpts=N/(${fps}*TB),${toYuv}`
         : toYuv;
       ffmpeg(['-framerate', String(fps * mb), '-i', path.join(dir, 'f_%06d.png'),
-        '-i', audio, '-filter_complex', `[0:v]${vf}[v];[1:a]adelay=${offMs}:all=1,apad=whole_dur=${meta.dur}[a]`,
+        '-i', audio, '-filter_complex', `[0:v]${vf}[v];[1:a]${place},apad=whole_dur=${meta.dur}[a]`,
         '-map', '[v]', '-map', '[a]', '-r', String(fps),
         '-c:v', 'libx264', '-preset', 'slow', '-crf', String(args.crf || 10), '-tune', 'animation', '-profile:v', 'high', '-g', String(fps),
         '-color_primaries', 'bt709', '-color_trc', 'bt709', '-colorspace', 'bt709', '-color_range', 'tv',

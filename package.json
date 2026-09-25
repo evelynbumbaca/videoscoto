@@ -9,8 +9,8 @@
     "sheet": "node render/render.mjs --sheet"
   },
   "dependencies": {
-    "@fontsource/inter": "^5.3.0",
-    "@fontsource/poppins": "^5.3.0",
+    "@fontsource/raleway": "^5.3.0",
+    "@fontsource/roboto": "^5.3.0",
     "gsap": "^3.15.0",
     "lucide-static": "^1.48.0",
     "playwright": "^1.56.1"

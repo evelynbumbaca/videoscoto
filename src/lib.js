@@ -5,9 +5,9 @@ gsap.registerPlugin(SplitText, DrawSVGPlugin, MorphSVGPlugin, CustomEase);
 gsap.config({ force3D: false });
 
 const W = 1920, H = 1080, FPS = 30;
-const OFF = 0.5;                                            // the voice-over starts 0.5 s into the video
+const OFF = -0.22;                                          // the voice-over is trimmed by 0.22 s: its first word lands at 0.5 s
 const A = t => Math.round((t + OFF) * 1000) / 1000;         // audio time (words.json) -> video time
-const DUR = 134;
+const DUR = 141.1;
 const C = {
   red: '#E6352F', redDk: '#C92A24', tint: '#FCE8E6', tint2: '#F7D3CF',
   bg: '#F6F4F1', ink: '#1F1B1B', ink2: '#6A625F', line: '#E2DBD5', white: '#FFFFFF',
@@ -30,7 +30,7 @@ function h(tag, o = {}, parent) {
 
 // Absolutely positioned text block. align: 'left' | 'center' | 'right' (x is the anchor)
 function T(parent, html, o = {}) {
-  const el = h('div', { cls: 't ' + (o.cls || ''), html }, parent);
+  const el = h('div', { cls: 't ' + (o.cls || '') + (o.rw ? ' rw' : ''), html }, parent);
   const w = o.w;
   let left = o.x;
   if (o.align === 'center' && w) left = o.x - w / 2;
@@ -180,7 +180,7 @@ function tipItem(parent, x, y, title, detail, o = {}) {
   const r = o.r || 30;
   const chk = checkIcon(parent, x + r, y + 30, r);
   const tt = T(parent, title, { x: x + r * 2 + 30, y: y + 2, size: o.size || 42, weight: 700, ls: '-.012em', nowrap: true });
-  const dt = detail != null ? T(parent, detail, { x: x + r * 2 + 30, y: y + 66, w: o.w || 960, size: o.dsize || 31, weight: 400, color: C.ink2, lh: 1.3 }) : null;
+  const dt = detail != null ? T(parent, detail, { x: x + r * 2 + 30, y: y + 66, w: o.w || 960, size: o.dsize || 31, weight: 500, color: C.ink2, lh: 1.3 }) : null;
   return { chk, tt, dt, all: [chk.s, tt, dt].filter(Boolean) };
 }
 function tipIn(tl, it, t, tDetail) {
