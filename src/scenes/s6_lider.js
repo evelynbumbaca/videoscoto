@@ -1,11 +1,11 @@
-// Scene 6 · Si sos quien evalúa (101.85 – 125.9 s)
+// Scene 6 · Si sos el líder
 // Red sweep, same checklist format. "Tu rol va mucho más allá de completar un formulario" is set
 // typographically (struck through), then three tips; the badge changes with each one.
 SCENES.push(tl => {
   const s6 = h('div', { cls: 'scene' });
-  show(tl, s6, 107.12, 133.03);
+  show(tl, s6, 111.77, 139.49);
   const content = h('div', { cls: 'fill' }, s6);
-  const cover = sweep(tl, s6, 107.18);                   // after "…momento formal."
+  const cover = sweep(tl, s6, 111.83);                   // after "…momento formal."
   gsap.set(content, { autoAlpha: 0 });
   tl.set(content, { autoAlpha: 1 }, cover);
   box(content, { x: 0, y: 0, w: W, h: H, bg: C.bg });
@@ -13,17 +13,17 @@ SCENES.push(tl => {
   const AX = 400, AY = 560, AD = 380;
   const av = avatar(content, AX, AY, AD);
   tl.fromTo(av.wrap, { scale: .85 }, { scale: 1, duration: 1.1, ease: 'expo.out' }, cover);
-  tl.to(av.wrap, { y: -10, duration: 1.6, ease: 'sine.inOut', yoyo: true, repeat: 16 }, cover + .6);
+  tl.to(av.wrap, { y: -10, duration: 1.6, ease: 'sine.inOut', yoyo: true, repeat: 17 }, cover + .6);
   const badge = badgeIcons(tl, content, AX + AD * .36, AY - AD * .36, 128, [
-    ['megaphone', cover + .35, A(115.725) - .3],
-    ['message-circle-more', A(115.725) - .2, A(121.196) - .3],
-    ['search', A(121.196) - .2, A(128.874) - .3],
-    ['rocket', A(128.874) - .2, null],
+    ['megaphone', cover + .35, A(121.074) - .3],
+    ['message-circle-more', A(121.074) - .2, A(126.996) - .3],
+    ['search', A(126.996) - .2, A(134.234) - .3],
+    ['rocket', A(134.234) - .2, null],
   ]);
   pop(tl, badge, cover + .25, { dur: .6 });
-  [A(115.725), A(121.196), A(128.874)].forEach(t => tl.to(badge, { keyframes: [{ rotation: -8, duration: .08 }, { rotation: 0, duration: .6, ease: 'elastic.out(1,.4)' }] }, t - .28));
+  [A(121.074), A(126.996), A(134.234)].forEach(t => tl.to(badge, { keyframes: [{ rotation: -8, duration: .08 }, { rotation: 0, duration: .6, ease: 'elastic.out(1,.4)' }] }, t - .28));
 
-  const hd = T(content, 'Si sos quien evalúa', { x: 760, y: 176, size: 60, weight: 800, rw: true, color: C.red, ls: '-.01em', nowrap: true });
+  const hd = T(content, 'Si sos el líder', { x: 760, y: 176, size: 60, weight: 800, rw: true, color: C.red, ls: '-.01em', nowrap: true });
   revealWords(tl, hd, cover + .2, { stagger: .07 });
   const bar = box(content, { x: 762, y: 268, w: 90, h: 7, r: 4, bg: C.red });
   tl.fromTo(bar, { scaleX: 0, transformOrigin: '0% 50%' }, { scaleX: 1, duration: .7, ease: 'expo.out' }, cover + .5);
@@ -33,12 +33,12 @@ SCENES.push(tl => {
   const iB = T(content, 'completar un formulario', { x: 760, y: 402, size: 60, weight: 700, color: '#A39A94', ls: '-.018em', nowrap: true });
   const strike = box(content, { x: 752, y: 402 + 31, w: iB.offsetWidth + 16, h: 7, r: 4, bg: C.red });
   const iC = T(content, 'Acompañar y generar valor en el desarrollo de tu equipo.', { x: 760, y: 530, w: 960, size: 50, weight: 700, color: C.red, lh: 1.16, ls: '-.015em' });
-  const sA = revealWords(tl, iA, A(109.483) - .15, { stagger: .06 });
-  const sB = revealWords(tl, iB, A(110.764) - .3, { stagger: .06 });
-  tl.fromTo(strike, { scaleX: 0, transformOrigin: '0% 50%' }, { scaleX: 1, duration: .5, ease: 'power3.inOut' }, A(111.323) + .12);
-  tl.to(iB, { color: '#C9C1BB', duration: .4 }, A(111.323) + .3);
-  const sC = revealLines(tl, iC, A(113.008) - .4, { stagger: .3 });
-  const TX = A(115.086) + .05;
+  const sA = revealWords(tl, iA, A(113.169) - .15, { stagger: .06 });
+  const sB = revealWords(tl, iB, A(114.769) - .3, { stagger: .06 });
+  tl.fromTo(strike, { scaleX: 0, transformOrigin: '0% 50%' }, { scaleX: 1, duration: .5, ease: 'power3.inOut' }, A(115.407) + .12);
+  tl.to(iB, { color: '#C9C1BB', duration: .4 }, A(115.407) + .3);
+  const sC = revealLines(tl, iC, A(117.479) - .4, { stagger: .3 });
+  const TX = A(120.275) + .05;
   hideSplit(tl, sA, TX); hideSplit(tl, sB, TX + .05);
   tl.to(strike, { autoAlpha: 0, duration: .25 }, TX + .1);
   hideSplit(tl, sC, TX + .1);
@@ -54,11 +54,11 @@ SCENES.push(tl => {
   const yb = [];
   for (let m = 0; m < 12; m++) yb.push(box(content, { x: 850 + m * 50, y: ys[0] + 122, w: 42, h: 12, r: 6, bg: '#E5DED8' }));
   tips[0].all.push(...yb);
-  tl.fromTo(yb, { autoAlpha: 0, scaleX: .3 }, { autoAlpha: 1, scaleX: 1, duration: .4, ease: 'expo.out', stagger: .025 }, A(118.046) + .1);
-  tl.to(yb, { backgroundColor: C.red, duration: .2, stagger: .045 }, A(118.847) - .05);
+  tl.fromTo(yb, { autoAlpha: 0, scaleX: .3 }, { autoAlpha: 1, scaleX: 1, duration: .4, ease: 'expo.out', stagger: .025 }, A(123.315) + .1);
+  tl.to(yb, { backgroundColor: C.red, duration: .2, stagger: .045 }, A(124.117) - .05);
 
   // tip 2: the three questions as chips, each on its words
-  const qs = [['¿Cómo se ve a sí mismo?', A(123.918)], ['¿Qué necesita de vos como líder?', A(125.359)], ['¿Qué lo motiva?', A(127.198)]];
+  const qs = [['¿Cómo se ve a sí mismo?', A(129.597)], ['¿Qué necesita de vos como líder?', A(131.037)], ['¿Qué lo motiva?', A(132.88)]];
   let qx = 850, qy = ys[1] + 70;
   qs.forEach(([txt, t], i) => {
     const chip = h('div', { cls: 'pill', html: txt }, content);
@@ -69,8 +69,8 @@ SCENES.push(tl => {
     tips[1].all.push(chip);
   });
 
-  const tIn = [A(115.725) - .2, A(121.196) - .28, A(128.874) - .28];
-  const tDt = [A(118.046) - .12, null, A(130.635) - .12];
+  const tIn = [A(121.074) - .2, A(126.996) - .28, A(134.234) - .28];
+  const tDt = [A(123.315) - .12, null, A(136.234) - .12];
   tips.forEach((it, i) => {
     tipIn(tl, it, tIn[i], tDt[i]);
     if (i > 0) tl.to(tips[i - 1].all, { autoAlpha: .38, duration: .45 }, tIn[i] - .1);

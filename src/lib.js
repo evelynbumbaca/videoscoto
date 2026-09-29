@@ -5,9 +5,9 @@ gsap.registerPlugin(SplitText, DrawSVGPlugin, MorphSVGPlugin, CustomEase);
 gsap.config({ force3D: false });
 
 const W = 1920, H = 1080, FPS = 30;
-const OFF = -0.22;                                          // the voice-over is trimmed by 0.22 s: its first word lands at 0.5 s
+const OFF = 0.5;                                            // the voice-over starts 0.5 s into the video
 const A = t => Math.round((t + OFF) * 1000) / 1000;         // audio time (words.json) -> video time
-const DUR = 141.1;
+const DUR = 147.6;
 const C = {
   red: '#E6352F', redDk: '#C92A24', tint: '#FCE8E6', tint2: '#F7D3CF',
   bg: '#F6F4F1', ink: '#1F1B1B', ink2: '#6A625F', line: '#E2DBD5', white: '#FFFFFF',
@@ -147,7 +147,7 @@ function sweep(tl, parent, t, o = {}) {
   return t + .6;
 }
 
-// Person avatar: pale disc with a head and shoulders, clipped to the circle (the reference's "Líder / Evaluado").
+// Person avatar: pale disc with a head and shoulders, clipped to the circle (the reference's "Líder / Colaborador").
 let _avatarId = 0;
 function avatar(parent, cx, cy, d, o = {}) {
   const wrap = box(parent, { x: cx - d / 2, y: cy - d / 2, w: d, h: d });

@@ -1,11 +1,11 @@
 // Scene 1 · Apertura (0 – 22.5 s)
 // 1A title on red · 1B the year line and "1 de octubre" · 1C the three instances · 1D "Una oportunidad para…"
 SCENES.push(tl => {
-  const W0 = 2.518;                                     // wipe to the year line, in the pause after "año"
+  const W0 = 2.894;                                     // wipe to the year line, in the pause after "año"
   // ---------------------------------------------------------------- 1A · title on red
   const s1a = h('div', { cls: 'scene' });
   gsap.set(s1a, { autoAlpha: 1 });                     // first frame is already the red title card
-  tl.set(s1a, { autoAlpha: 0 }, 3.518);
+  tl.set(s1a, { autoAlpha: 0 }, 3.894);
   box(s1a, { x: 0, y: 0, w: W, h: H, bg: C.red });
   const content = h('div', { cls: 'fill' }, s1a);
 
@@ -13,7 +13,7 @@ SCENES.push(tl => {
   const deco = layer(content);
   const arcs = [320, 490, 660].map(r => sv('circle', { cx: 1790, cy: 1110, r, fill: 'none', stroke: 'rgba(255,255,255,.12)', 'stroke-width': 2 }, deco));
   tl.fromTo(arcs, { drawSVG: '50% 50%' }, { drawSVG: '0% 100%', duration: 2.6, ease: 'power2.out', stagger: .18 }, .1);
-  tl.fromTo(deco, { rotation: -8, svgOrigin: '1790 1110' }, { rotation: 4, svgOrigin: '1790 1110', duration: 3.518, ease: 'none' }, 0);
+  tl.fromTo(deco, { rotation: -8, svgOrigin: '1790 1110' }, { rotation: 4, svgOrigin: '1790 1110', duration: 3.894, ease: 'none' }, 0);
 
   // badge with the ascending arrow
   const bx = 470, by = 540;
@@ -43,7 +43,7 @@ SCENES.push(tl => {
 
   // ---------------------------------------------------------------- 1B + 1C · light scene
   const s1b = h('div', { cls: 'scene' });
-  show(tl, s1b, W0, 14.127);
+  show(tl, s1b, W0, 13.855);
   const wipeDk = box(s1b, { x: 0, y: 0, w: W, h: H, bg: C.redDk });
   const wipeLt = box(s1b, { x: 0, y: 0, w: W, h: H, bg: C.bg });
   tl.fromTo(wipeDk, { xPercent: 100 }, { xPercent: 0, duration: .9, ease: 'wipe' }, W0);
@@ -66,18 +66,18 @@ SCENES.push(tl => {
   // final stretch: OCT → DIC turns red
   const XO = X0 + MW * 9;
   const seg = box(yearG, { x: XO, y: LY - 7, w: X1 - XO, h: 14, bg: C.red, r: 7 });
-  tl.fromTo(seg, { scaleX: 0, transformOrigin: '0% 50%' }, { scaleX: 1, duration: .85, ease: 'power3.inOut' }, A(4.88) - .1);
-  tl.to(labels.slice(9), { color: C.red, fontWeight: 700, duration: .3, stagger: .22 }, A(4.88));
+  tl.fromTo(seg, { scaleX: 0, transformOrigin: '0% 50%' }, { scaleX: 1, duration: .85, ease: 'power3.inOut' }, A(4.96) - .1);
+  tl.to(labels.slice(9), { color: C.red, fontWeight: 700, duration: .3, stagger: .22 }, A(4.96));
 
   // a dot travels through the year and stops on October 1st
   const dot = box(yearG, { x: X0 - 15, y: LY - 15, w: 30, h: 30, bg: C.red, r: 15 });
-  const tArr = A(3.84) + .07;                                  // the dot lands on October as "octubre" is said
+  const tArr = A(3.68) + .07;                                  // the dot lands on October as "octubre" is said
   tl.fromTo(dot, { scale: 0 }, { scale: 1, duration: .3, ease: 'back.out(2)' }, W0 + .58);
   tl.fromTo(dot, { x: 0 }, { x: XO - X0, duration: tArr - (W0 + .7), ease: 'power2.inOut' }, W0 + .7);
   const ring = box(yearG, { x: XO - 15, y: LY - 15, w: 30, h: 30, r: 15, border: `3px solid ${C.red}` });
   tl.fromTo(ring, { scale: 1, autoAlpha: 0 }, { keyframes: [{ autoAlpha: .9, duration: .05 }, { scale: 3, autoAlpha: 0, duration: .9, ease: 'power2.out' }] }, tArr - .03);
   const ring2 = box(yearG, { x: XO - 15, y: LY - 15, w: 30, h: 30, r: 15, border: `3px solid ${C.red}` });
-  tl.fromTo(ring2, { scale: 1, autoAlpha: 0 }, { keyframes: [{ autoAlpha: .7, duration: .05 }, { scale: 3, autoAlpha: 0, duration: 1.1, ease: 'power2.out' }] }, 6);
+  tl.fromTo(ring2, { scale: 1, autoAlpha: 0 }, { keyframes: [{ autoAlpha: .7, duration: .05 }, { scale: 3, autoAlpha: 0, duration: 1.1, ease: 'power2.out' }] }, 6.83);
   const stem = box(yearG, { x: XO - 2, y: LY - 104, w: 4, h: 90, bg: C.red, r: 2 });
   tl.fromTo(stem, { scaleY: 0, transformOrigin: '50% 100%' }, { scaleY: 1, duration: .45, ease: 'power3.out' }, tArr - .05);
   const cal = icon(yearG, 'calendar-days', { cx: XO + 34, cy: LY - 138, size: 50, sw: 2, color: C.red });
@@ -91,10 +91,10 @@ SCENES.push(tl => {
   const head1 = T(yearG, 'Comienza la etapa final', { x: X0 - 4, y: 262, size: 104, weight: 800, rw: true, ls: '-.018em', nowrap: true });
   revealWords(tl, head1, A(4.32) - .2, { stagger: .07 });
   const head2 = T(yearG, 'de la <span class="red" style="font-weight:700">Gestión del Desempeño 2026</span>', { x: X0, y: 392, size: 54, weight: 500, color: C.ink2, nowrap: true });
-  revealWords(tl, head2, A(5.52) - .1, { stagger: .06 });
+  revealWords(tl, head2, A(5.6) - .1, { stagger: .06 });
 
   // 1B → 1C: text leaves, the red stretch becomes the connector of the three instances
-  const T1 = 8.146;
+  const T1 = 8.592;
   tl.to([eyebrow, head1, head2], { y: -40, autoAlpha: 0, duration: .5, ease: 'power2.in', stagger: .06 }, T1);
   tl.to([...labels, oct, cal, stem], { autoAlpha: 0, duration: .35, ease: 'power1.in' }, T1);
   tl.to([base, ...ticks, dot, ring, ring2], { autoAlpha: 0, duration: .35 }, T1 + .1);
@@ -102,11 +102,11 @@ SCENES.push(tl => {
   tl.to(seg, { left: CX[0], width: CX[2] - CX[0], top: CY - 5, height: 10, duration: .9, ease: 'power3.inOut' }, T1 + .15);
 
   const eb2 = T(yearG, 'La etapa final incluye', { x: 960, y: 300, w: 1200, align: 'center', cls: 'eyebrow' });
-  revealWords(tl, eb2, A(8.64) + .05, { stagger: .05 });
+  revealWords(tl, eb2, A(8.32) + .05, { stagger: .05 });
   const items = [
-    ['user-check', 'Autoevaluación', A(10.48)],
-    ['messages-square', 'Feedback', A(11.842)],
-    ['clipboard-check', 'Evaluación', A(12.722)],
+    ['user-check', 'Autoevaluación', A(9.92)],
+    ['messages-square', 'Feedback', A(11.122)],
+    ['clipboard-check', 'Evaluación', A(11.922)],
   ];
   const discs = [], names = [];
   items.forEach(([ic, name, t], i) => {
@@ -119,10 +119,10 @@ SCENES.push(tl => {
     discs.push(d); names.push(nm);
   });
   // gentle life while holding
-  tl.to(discs, { y: -8, duration: .9, ease: 'sine.inOut', yoyo: true, repeat: 1, stagger: .15 }, 12.392);
+  tl.to(discs, { y: -8, duration: .9, ease: 'sine.inOut', yoyo: true, repeat: 1, stagger: .15 }, 12.312);
 
   // 1C exit
-  const T2 = 13.158;
+  const T2 = 13.013;
   tl.to(eb2, { y: -30, autoAlpha: 0, duration: .4, ease: 'power2.in' }, T2);
   tl.to(names, { y: 30, autoAlpha: 0, duration: .4, ease: 'power2.in', stagger: .05 }, T2);
   tl.to(discs, { scale: 0, duration: .45, ease: 'back.in(1.6)', stagger: .06 }, T2 + .05);
@@ -130,16 +130,16 @@ SCENES.push(tl => {
 
   // ---------------------------------------------------------------- 1D · "Una oportunidad para…"
   const s1d = h('div', { cls: 'scene' });
-  show(tl, s1d, 13.291, 21.024);
+  show(tl, s1d, 13.133, 20.854);
   const l1 = T(s1d, 'Una oportunidad para', { x: 150, y: 318, size: 84, weight: 800, rw: true, ls: '-.015em', nowrap: true });
-  revealWords(tl, l1, A(13.857) - .15, { stagger: .08 });
+  revealWords(tl, l1, A(12.945) - .15, { stagger: .08 });
   const accent = box(s1d, { x: 150, y: 450, w: 90, h: 8, bg: C.red, r: 4 });
-  tl.fromTo(accent, { scaleX: 0, transformOrigin: '0% 50%' }, { scaleX: 1, duration: .7, ease: 'expo.out' }, A(14.337));
+  tl.fromTo(accent, { scaleX: 0, transformOrigin: '0% 50%' }, { scaleX: 1, duration: .7, ease: 'expo.out' }, A(13.345));
 
   const phrases = [
-    ['cerrar el recorrido', A(15.297) - .35, A(16.737) - .45],
-    ['intercambiar miradas', A(16.737) - .45, A(17.937) - .4],
-    ['poner en común los<br>próximos desafíos', A(17.937) - .4, null],
+    ['cerrar el recorrido', A(14.385) - .35, A(15.825) - .45],
+    ['intercambiar miradas', A(15.825) - .45, A(17.025) - .4],
+    ['poner en común los<br>próximos desafíos', A(17.025) - .4, null],
   ];
   const ph = phrases.map(([txt, tin, tout], i) => {
     const el = T(s1d, txt, { x: 146, y: 492, size: 92, weight: 900, color: C.red, ls: '-.02em', lh: 1.06, nowrap: true });
@@ -153,7 +153,7 @@ SCENES.push(tl => {
   // illustration badge on the right
   const ICX = 1500, ICY = 540;
   const bg = box(s1d, { x: ICX - 230, y: ICY - 230, w: 460, h: 460, bg: C.tint, r: 230 });
-  pop(tl, bg, A(15.297) - .45, { dur: .9, ease: 'back.out(1.4)' });
+  pop(tl, bg, A(14.385) - .45, { dur: .9, ease: 'back.out(1.4)' });
   const ill = layer(s1d);
   const G = (t0, t1) => { const g = sv('g', { transform: `translate(${ICX} ${ICY})` }, ill); return g; };
 
@@ -163,12 +163,12 @@ SCENES.push(tl => {
   const start = sv('circle', { cx: -150, cy: 118, r: 17, fill: C.red }, g1);
   const pole = sv('path', { d: 'M 92 -52 L 92 -150', fill: 'none', stroke: C.ink, 'stroke-width': 9, 'stroke-linecap': 'round' }, g1);
   const flag = sv('path', { d: 'M 92 -150 L 158 -126 L 92 -102 Z', fill: C.red, stroke: C.red, 'stroke-width': 6, 'stroke-linejoin': 'round' }, g1);
-  const t1 = A(15.297) - .3;
+  const t1 = A(14.385) - .3;
   pop(tl, start, t1, { dur: .45 });
   tl.fromTo(route, { drawSVG: '0%' }, { drawSVG: '100%', duration: 1, ease: 'power2.inOut' }, t1 + .1);
   tl.fromTo(pole, { drawSVG: '0%' }, { drawSVG: '100%', duration: .4, ease: 'power2.out' }, t1 + 1.02);
   tl.fromTo(flag, { scaleX: 0, transformOrigin: '0% 50%', autoAlpha: 0 }, { scaleX: 1, autoAlpha: 1, duration: .6, ease: 'back.out(2.2)' }, t1 + 1.3);
-  tl.to(g1, { scale: .6, autoAlpha: 0, svgOrigin: '0 0', duration: .35, ease: 'power2.in' }, A(16.737) - .38);
+  tl.to(g1, { scale: .6, autoAlpha: 0, svgOrigin: '0 0', duration: .35, ease: 'power2.in' }, A(15.825) - .38);
 
   // I2 · two speech bubbles taking turns
   const g2 = G();
@@ -177,11 +177,11 @@ SCENES.push(tl => {
   [-100, -60, -20].forEach(x => sv('circle', { cx: x, cy: -52, r: 10, fill: '#fff' }, bA));
   sv('path', { d: 'M -10 -12 H 150 a 26 26 0 0 1 26 26 V 98 a 26 26 0 0 1 -26 26 H 135 V 164 L 95 124 H -10 a 26 26 0 0 1 -26 -26 V 14 a 26 26 0 0 1 26 -26 Z', fill: '#fff', stroke: C.red, 'stroke-width': 9, 'stroke-linejoin': 'round' }, bB);
   [40, 80, 120].forEach(x => sv('circle', { cx: x, cy: 56, r: 10, fill: C.red }, bB));
-  const t2 = A(16.737) - .2;
+  const t2 = A(15.825) - .2;
   tl.fromTo(bA, { scale: 0, svgOrigin: '-135 56' }, { scale: 1, svgOrigin: '-135 56', duration: .6, ease: 'back.out(2)' }, t2);
   tl.fromTo(bB, { scale: 0, svgOrigin: '135 164' }, { scale: 1, svgOrigin: '135 164', duration: .6, ease: 'back.out(2)' }, t2 + .38);
   tl.to(bA, { y: -8, duration: .5, ease: 'sine.inOut', yoyo: true, repeat: 1 }, t2 + .75);
-  tl.to(g2, { scale: .6, autoAlpha: 0, svgOrigin: '0 0', duration: .35, ease: 'power2.in' }, A(17.937) - .3);
+  tl.to(g2, { scale: .6, autoAlpha: 0, svgOrigin: '0 0', duration: .35, ease: 'power2.in' }, A(17.025) - .3);
 
   // I3 · mountain with a flag on the summit
   const g3 = G();
@@ -189,10 +189,10 @@ SCENES.push(tl => {
   const snow = sv('path', { d: 'M 22 -38 L 52 -92 L 84 -34 L 64 -46 L 52 -30 L 40 -46 Z', fill: C.red }, g3);
   const pole3 = sv('path', { d: 'M 52 -92 L 52 -178', fill: 'none', stroke: C.ink, 'stroke-width': 9, 'stroke-linecap': 'round' }, g3);
   const flag3 = sv('path', { d: 'M 52 -178 L 114 -156 L 52 -134 Z', fill: C.red, stroke: C.red, 'stroke-width': 6, 'stroke-linejoin': 'round' }, g3);
-  const t3 = A(17.937) - .1;
+  const t3 = A(17.025) - .1;
   tl.fromTo(mount, { drawSVG: '0%' }, { drawSVG: '100%', duration: 1.1, ease: 'power2.inOut' }, t3);
   tl.fromTo(snow, { autoAlpha: 0, scale: .4, svgOrigin: '52 -60' }, { autoAlpha: 1, scale: 1, svgOrigin: '52 -60', duration: .5, ease: 'back.out(2)' }, t3 + .9);
-  tl.fromTo(pole3, { drawSVG: '0%' }, { drawSVG: '100%', duration: .4, ease: 'power2.out' }, A(19.297) - .1);
-  tl.fromTo(flag3, { scaleX: 0, transformOrigin: '0% 50%', autoAlpha: 0 }, { scaleX: 1, autoAlpha: 1, duration: .6, ease: 'back.out(2.2)' }, A(19.777) - .05);
-  tl.to(flag3, { skewY: -6, duration: .45, ease: 'sine.inOut', yoyo: true, repeat: 1, transformOrigin: '0% 50%' }, A(19.777) + .6);
+  tl.fromTo(pole3, { drawSVG: '0%' }, { drawSVG: '100%', duration: .4, ease: 'power2.out' }, A(18.225) - .1);
+  tl.fromTo(flag3, { scaleX: 0, transformOrigin: '0% 50%', autoAlpha: 0 }, { scaleX: 1, autoAlpha: 1, duration: .6, ease: 'back.out(2.2)' }, A(18.705) - .05);
+  tl.to(flag3, { skewY: -6, duration: .45, ease: 'sine.inOut', yoyo: true, repeat: 1, transformOrigin: '0% 50%' }, A(18.705) + .6);
 });

@@ -3,8 +3,8 @@
 // they exchange speech bubbles, and the arrow turns into the ascending arrow (growth).
 SCENES.push(tl => {
   const s4 = h('div', { cls: 'scene' });
-  const TFILL = 68.23;                                // the Importante card has filled the frame
-  const T5 = 80.16;                                    // iris to scene 5 ("…aprendizaje mutuo." ends)
+  const TFILL = 71.07;                                // the Importante card has filled the frame
+  const T5 = 84.38;                                    // iris to scene 5 ("…aprendizaje mutuo." ends)
   show(tl, s4, TFILL, T5 + .97);
   box(s4, { x: 0, y: 0, w: W, h: H, bg: C.red });
 
@@ -25,25 +25,25 @@ SCENES.push(tl => {
   const st = { fill: 'none', stroke: '#fff', 'stroke-width': 13, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' };
   const l1 = sv('path', { d: `M960 ${CY} L798 ${CY}`, ...st }, ag), r1 = sv('path', { d: `M960 ${CY} L1122 ${CY}`, ...st }, ag);
   const lh = sv('path', { d: `M830 ${CY - 32} L798 ${CY} L830 ${CY + 32}`, ...st }, ag), rh = sv('path', { d: `M1090 ${CY - 32} L1122 ${CY} L1090 ${CY + 32}`, ...st }, ag);
-  const tA = A(69.045) + .1;
+  const tA = A(71.547) + .1;
   tl.fromTo([l1, r1], { drawSVG: '0%' }, { drawSVG: '100%', duration: .6, ease: 'power3.out' }, tA);
   tl.fromTo([lh, rh], { drawSVG: '50% 50%', autoAlpha: 0 }, { drawSVG: '0% 100%', autoAlpha: 1, duration: .35, ease: 'power2.out' }, tA + .45);
   // pulse on "doble vía", then a calm heartbeat while the idea is explained
-  tl.fromTo(ag, { scale: 1, svgOrigin: `960 ${CY}` }, { scale: 1.2, svgOrigin: `960 ${CY}`, duration: .22, ease: 'power2.out', yoyo: true, repeat: 1, immediateRender: false }, A(70.486) - .05);
-  tl.to(ag, { scale: 1.08, svgOrigin: `960 ${CY}`, duration: .3, ease: 'sine.inOut', yoyo: true, repeat: 5, repeatDelay: .5 }, A(70.486) + .9);
-  tl.to(lh, { x: -8, duration: .3, ease: 'sine.inOut', yoyo: true, repeat: 5, repeatDelay: .5 }, A(70.486) + .9);
-  tl.to(rh, { x: 8, duration: .3, ease: 'sine.inOut', yoyo: true, repeat: 5, repeatDelay: .5 }, A(70.486) + .9);
+  tl.fromTo(ag, { scale: 1, svgOrigin: `960 ${CY}` }, { scale: 1.2, svgOrigin: `960 ${CY}`, duration: .22, ease: 'power2.out', yoyo: true, repeat: 1, immediateRender: false }, A(73.228) - .05);
+  tl.to(ag, { scale: 1.08, svgOrigin: `960 ${CY}`, duration: .3, ease: 'sine.inOut', yoyo: true, repeat: 7, repeatDelay: .5 }, A(73.228) + .9);
+  tl.to(lh, { x: -8, duration: .3, ease: 'sine.inOut', yoyo: true, repeat: 7, repeatDelay: .5 }, A(73.228) + .9);
+  tl.to(rh, { x: 8, duration: .3, ease: 'sine.inOut', yoyo: true, repeat: 7, repeatDelay: .5 }, A(73.228) + .9);
 
   const head = T(s4, 'Una conversación de doble vía', { x: 960, y: 150, w: 1700, align: 'center', size: 84, weight: 800, rw: true, color: '#fff', ls: '-.015em' });
-  const hs = revealWords(tl, head, A(69.767) - .2, { stagger: .07 });
+  const hs = revealWords(tl, head, A(72.269) - .2, { stagger: .07 });
 
-  const labE = T(s4, 'Evaluado', { x: LX, y: CY + 176, w: 400, align: 'center', size: 48, weight: 700, color: '#fff' });
+  const labE = T(s4, 'Colaborador', { x: LX, y: CY + 176, w: 400, align: 'center', size: 48, weight: 700, color: '#fff' });
   const labL = T(s4, 'Líder', { x: RX, y: CY + 176, w: 400, align: 'center', size: 48, weight: 700, color: '#fff' });
-  revealWords(tl, labE, A(72.166) - .18);
-  revealWords(tl, labL, A(73.126) - .18);
+  revealWords(tl, labE, A(74.989) - .18);
+  revealWords(tl, labL, A(76.029) - .18);
 
   // "rol activo": both people react, rings pulse out of each
-  const tR = A(74.005) - .05;
+  const tR = A(76.987) - .05;
   [ev, ld].forEach((p, i) => {
     tl.to(p.wrap, { y: -20, duration: .22, ease: 'power2.out', yoyo: true, repeat: 1 }, tR + i * .12);
     const ring = box(s4, { x: (i ? RX : LX) - D / 2, y: CY - D / 2, w: D, h: D, r: D / 2, border: '4px solid rgba(255,255,255,.8)' });
@@ -62,30 +62,30 @@ SCENES.push(tl => {
     return b;
   };
   const bL = bubble(820, 372, false), bR = bubble(1100, 372, true);
-  const tB = A(75.124) - .1;
+  const tB = A(78.347) - .1;
   tl.fromTo(bL, { scale: 0, svgOrigin: '798 450' }, { scale: 1, svgOrigin: '798 450', duration: .55, ease: 'back.out(2)' }, tB);
   tl.fromTo(bR, { scale: 0, svgOrigin: '1122 450' }, { scale: 1, svgOrigin: '1122 450', duration: .55, ease: 'back.out(2)' }, tB + .7);
   tl.to(bL, { y: -10, duration: .6, ease: 'sine.inOut', yoyo: true, repeat: 3 }, tB + .6);
   tl.to(bR, { y: -10, duration: .6, ease: 'sine.inOut', yoyo: true, repeat: 2 }, tB + 1.3);
 
   const sub = T(s4, 'Una instancia de intercambio', { x: 960, y: 262, w: 1400, align: 'center', size: 44, weight: 500, color: 'rgba(255,255,255,.92)' });
-  const ss = revealWords(tl, sub, A(75.845) - .25, { stagger: .06 });
+  const ss = revealWords(tl, sub, A(79.308) - .25, { stagger: .06 });
 
   // growth: the arrow gives way to the ascending arrow and both people rise
-  const TG = A(77.124) + .15;
+  const TG = A(80.826) + .15;
   hideSplit(tl, hs, TG); hideSplit(tl, ss, TG + .05);
   tl.to([bL, bR], { scale: 0, duration: .3, ease: 'power2.in' }, TG);
   tl.to([l1, r1, lh, rh], { drawSVG: '50% 50%', autoAlpha: 0, duration: .4, ease: 'power2.in' }, TG);
   const head2 = T(s4, 'Crecimiento y aprendizaje mutuo', { x: 960, y: 150, w: 1700, align: 'center', size: 84, weight: 800, rw: true, color: '#fff', ls: '-.015em' });
-  revealWords(tl, head2, A(78.167) - .12, { stagger: .08 });
+  revealWords(tl, head2, A(81.709) - .12, { stagger: .08 });
   const up = sv('path', { d: `M 822 ${CY + 92} L 922 ${CY - 8} L 990 ${CY + 44} L 1098 ${CY - 92}`, ...st, 'stroke-width': 15 }, arr);
   const upH = sv('path', { d: `M 1048 ${CY - 96} L 1098 ${CY - 92} L 1094 ${CY - 42}`, ...st, 'stroke-width': 15 }, arr);
-  tl.fromTo(up, { drawSVG: '0%' }, { drawSVG: '100%', duration: .8, ease: 'power2.inOut' }, A(78.406));
-  tl.fromTo(upH, { drawSVG: '50% 50%', autoAlpha: 0 }, { drawSVG: '0% 100%', autoAlpha: 1, duration: .35 }, A(78.406) + .7);
-  tl.to([ev.wrap, labE], { y: -24, duration: 1, ease: 'power2.inOut' }, A(78.406) + .1);
-  tl.to([ld.wrap, labL], { y: -24, duration: 1, ease: 'power2.inOut' }, A(78.406) + .25);
+  tl.fromTo(up, { drawSVG: '0%' }, { drawSVG: '100%', duration: .8, ease: 'power2.inOut' }, A(81.948));
+  tl.fromTo(upH, { drawSVG: '50% 50%', autoAlpha: 0 }, { drawSVG: '0% 100%', autoAlpha: 1, duration: .35 }, A(81.948) + .7);
+  tl.to([ev.wrap, labE], { y: -24, duration: 1, ease: 'power2.inOut' }, A(81.948) + .1);
+  tl.to([ld.wrap, labL], { y: -24, duration: 1, ease: 'power2.inOut' }, A(81.948) + .25);
 
-  // hand-off to scene 5: the evaluado is carried over, everything else goes
+  // hand-off to scene 5: the colaborador is carried over, everything else goes
   tl.to([labE, labL, ld.wrap, up, upH, head2], { autoAlpha: 0, duration: .35, ease: 'power1.in' }, T5 + .02);
   window.S4_EVALUADO = { x: LX, y: CY - 24, d: D };
 });

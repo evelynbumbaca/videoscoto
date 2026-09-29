@@ -3,7 +3,7 @@
 Video institucional en motion graphics, sincronizado con la locución.
 
 - **Archivo final:** [`entrega/Etapas_de_evaluacion_GD2026.mp4`](entrega/Etapas_de_evaluacion_GD2026.mp4)
-- **Formato:** 1920×1080 (16:9) · 30 fps · H.264 (High, CRF 10, un keyframe por segundo para editar cómodo en After Effects) + AAC 256 kbps · 2:21
+- **Formato:** 1920×1080 (16:9) · 30 fps · H.264 (High, CRF 10, un keyframe por segundo para editar cómodo en After Effects) + AAC 256 kbps · 2:28
 - **Color:** BT.709; el rojo `#E6352F` se conserva exacto (±1) en el archivo final.
 - **Locución:** versión final (`assets/audio/locucion.mp3`); la primera palabra entra en el segundo 0,5 del video (ya viene mezclada en el MP4).
 - **Sin logo:** el logo de COTO se agrega en After Effects (ver zonas reservadas).
@@ -13,8 +13,8 @@ Video institucional en motion graphics, sincronizado con la locución.
 
 | Momento | Zona libre (px, sobre 1920×1080) |
 |---|---|
-| Apertura, 0 – 2,5 s (fondo rojo) | esquina superior derecha: x 1480–1800, y 60–200 |
-| Cierre, 133 s – fin (fondo rojo) | centrado debajo de la línea de tiempo: x 760–1160, y 720–900 |
+| Apertura, 0 – 2,9 s (fondo rojo) | esquina superior derecha: x 1480–1800, y 60–200 |
+| Cierre, 139,5 s – fin (fondo rojo) | centrado debajo de la línea de tiempo: x 760–1160, y 720–900 |
 | Resto del video | esquina superior derecha (x ≥ 1560, y ≤ 170), para una marca de agua opcional |
 
 ## Sistema visual
